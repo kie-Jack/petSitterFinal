@@ -30,8 +30,13 @@ a.home {
 	position: fixed;
 	top: 5%;
 	left: 30%;
+	text-decoration: none;
 }
 
+a.menu{
+	text-decoration: none;
+	visibility: hidden;
+}
 .nav-links a {
 	display: inline-block;
 	text-decoration: none;

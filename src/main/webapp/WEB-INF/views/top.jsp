@@ -30,9 +30,9 @@
 		</c:if>
 	</section>
 
-<<<<<<< HEAD
+
 	<nav class="navMenu">
-		<div class="nav-links">
+		<div class="nav-links" >
 			<a href="join">펫시터 찾기</a> 
 			<a href="rblist">후기 게시판</a> 
 			<a href="q_list">이용 문의</a> 
@@ -116,9 +116,9 @@
 </script>
 <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-=======
+
    <nav class="navMenu">
-   	<div style="display: flex;">
+   	<div style="display: flex; z-index: -10;">
         <a class="menu" href="join">펫시터 찾기</a>
         <a class="menu" href="rblist">후기 게시판</a>
         <a class="menu" href="q_list">이용 문의</a>
@@ -127,6 +127,4 @@
        	<div class="dot"></div>
    	</div>
    </nav>
-   
-</header>
->>>>>>> refs/remotes/origin/master
+
