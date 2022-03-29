@@ -1,0 +1,58 @@
+@charset "UTF-8";
+
+
+.updateTable {
+	font-family: 'Gugi', cursive;
+	font-size : 1.3em;
+	color: #aabb90;
+	margin-left: auto;
+	margin-right: auto;
+	padding : 150px;
+	height : 80px;
+	border-spacing: 15px;
+	transform: translateX(-90%);
+	
+}
+
+input{ 	padding: 5px;
+		margin: 20px auto; 
+}
+input{
+   padding: 7px;
+   border-radius: 4px;
+   border: 2px solid #ccc;
+   box-sizing: border-box;
+   margin-bottom: 10px;
+}
+input[type=submit], input[type=button], input[type=reset] {
+	background:	#aabb99;
+	color: white;
+	left : 30px;
+	cursor: pointer;
+}
+.modal{
+	 display: none;
+	font-size : 1.2em;
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 40%;
+    top: 40%;
+    width: 20%; /* Full width */
+    height: 30%; /* Full height */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+

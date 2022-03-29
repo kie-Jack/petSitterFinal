@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jcpdev.petSitter.dao.Q_CommentMapper"> <!-- namespace : java 인터페이스와 매핑될 파일 지정 -->
+
+
+<insert id="insert" parameterType="Q_Comment">
+		insert into q_comment(q_idx,qc_content,idx)
+		values (#{q_idx},#{qc_content},#{idx})
+	</insert>
+	<select id="q_commentList" resultType="Q_Comment" parameterType="int">
+		select qc_idx ,qc.idx a_idx ,q_idx,qc_content , nick 
+		from q_comment qc 
+				inner join member a on a.idx = qc.idx where q_idx=#{q_idx}
+		
+	</select>
+	<select id="q_commentCount" resultType="int" parameterType="int">
+		SELECT count(*) FROM q_comment WHERE q_idx=#{q_idx}
+	</select>
+	
+	<update id="update" parameterType="java.util.HashMap">
+		UPDATE q_comment set qc_content=#{qc_content} where qc_idx=#{qc_idx}
+	</update>
+	
+	<delete id="delete" parameterType="int">
+		DELETE FROM q_comment where qc_idx=#{qc_idx}
+	</delete>
+	
+	<update id="updateQ_CommentCnt" parameterType="java.util.HashMap">
+		UPDATE q_board set qc_cnt=qc_cnt+1 where qc_idx=#{qc_idx}
+	</update>
+	
+	<!-- 댓글추가/삭제에 모두 적용할 수 있습니다. -->
+	<update id="updateCountAll" parameterType="int">
+		update q_board set qc_cnt=(
+		select count(*) from q_comment where q_idx=#{q_idx}) where q_idx=#{q_idx}	
+	</update>	<!-- 메인글의 idx 가 파라미터입니다. -->
+</mapper>

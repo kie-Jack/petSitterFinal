@@ -1,0 +1,21 @@
+@charset "UTF-8";
+
+
+table{
+	font-family :monospace;
+	font-size : 1.0em;
+	color: #aabb97;
+	left : 550px;
+	top:30px;	
+	margin : auto;
+	padding : 150px;
+	height : 100px;
+	border-spacing: 15px;
+	position : absolute;
+}
+
+input[type=button]{
+	background:	#aabb99;
+	color: white;
+	left : 30px;
+}

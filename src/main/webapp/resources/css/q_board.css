@@ -1,0 +1,280 @@
+<<<<<<< HEAD
+* { margin:0, padding:0, box-sizing:border-box }
+h3{
+	align-items: center; 
+	text-align: center;
+	font-size: 2.0em;
+}
+.qnaBoard{
+	font-family: 'Gugi', cursive;
+	display: flex;
+	margin-top: 200px;
+	margin-bottom: 300px;	
+	margin-left: auto;
+	margin-right: auto;
+	width: min(90%,70.5rem);
+	flex-wrap: wrap;
+	flex-direction: column;
+}
+.qnaSearch, .qnaList, .paging{
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+}
+
+
+.border_opt{
+	border: 1px solid #aabb97;
+	border-radius: 4px;
+}
+.button {
+    background-color: #aabb97;
+    color:white;
+    padding: 5px 10px;
+    margin: 5px 10px;
+    text-decoration: none;  /*  밑줄제거  */
+    cursor: pointer;
+    display: inline-block;
+	text-align:center;
+	border-radius: 5px;
+	transition: all 0.3s ease;
+	box-shadow: 0 3px 3px 0 rgba(0,0,0,0.24), 0 3px 3px 0 rgba(0,0,0,0.19);
+	float: right;
+}
+.button:hover {
+	background-color: white;
+	color: #aabb97;
+}
+.pagenum {
+    border: 1px solid #aabb97;
+    color: black;
+    padding: 3px 5px;
+    text-decoration: none;  /*  밑줄제거  */
+    cursor: pointer;
+    display: inline-block;
+	text-align:center;
+	font-size: 9pt;
+	transition: all 0.3s ease;
+	margin-top: 20px;
+}
+.pagenum:hover{
+	  background-color: #aabb97;
+	  color:white;
+} 
+table { 
+	
+	width: 100%; 
+	margin: 20px auto;
+}
+
+tr,th,td{
+		/* border: 1px solid #cccccc; */
+		padding: 4px;
+		text-align: center;
+}
+
+.table2_1 table {
+	width:70%;
+	margin:20px auto;
+}
+.table2_1 th {
+	background-color: #aabb97;
+	color: white;
+}
+.table2_1,.table2_1 th,.table2_1 td
+{
+	font-size:0.95em;
+	text-align:center;
+	padding:4px;
+	border:1px solid #aabb97;
+	border-collapse:collapse
+}
+.table2_1 tr:nth-child(odd){
+	background-color: #dcedc8;
+}
+.table2_1 tr:nth-child(even){
+	background-color: white;;
+}
+
+.title {
+	color: #1a1aff;
+	text-decoration: none;  /*  밑줄제거  */
+	font: bold;
+	text-align: center;
+}
+
+.input1{
+	padding: 7px 15px;
+	border: 1px solid #4080bf;
+	border-radius: 9px;
+}
+
+
+input[type=submit],input[type=reset],input[type=button]{
+    color:white;
+    padding: 5px 10px;
+	text-align:center;
+	display: inline-block;
+	border-radius: 4px;
+	border: none;
+	cursor: pointer;
+	background-color: #aabb97;
+} 
+
+.td1{
+	background-color: #4080bf;
+    color:white;
+    padding: 5px 10px;
+    text-align: center;
+    border-collapse:separate;
+    border-radius: 6px;
+   
+=======
+.border_opt{
+	border: 1px solid #cccccc;
+	border-radius: 4px;
+}
+.button {
+    background-color: green;
+    color:white;
+    padding: 5px 10px;
+    margin: 5px 10px;
+    text-decoration: none;  /*  밑줄제거  */
+    cursor: pointer;
+    display: inline-block;
+	text-align:center;
+}
+.pagenum {
+    border: 1px solid gray;
+    color: #0178b6;
+    padding: 3px 5px;
+    text-decoration: none;  /*  밑줄제거  */
+    cursor: pointer;
+    display: inline-block;
+	text-align:center;
+	font-size: 9pt;
+}
+.pagenum:hover{
+	  background-color:gray;
+	  color:white;
+} 
+table { width: 70%; margin: 20px auto;}
+
+tr,th,td{
+		/* border: 1px solid #cccccc; */
+		padding: 4px;
+		text-align: center;
+}
+th {
+		background-color: #4080bf;
+		font-size:90%;
+		color: white;
+}
+.title {
+	color: #1a1aff;
+	text-decoration: none;  /*  밑줄제거  */
+	font: bold;
+	text-align: center;
+}
+.input1{
+	padding: 7px 15px;
+	border: 1px solid #4080bf;
+	border-radius: 9px;
+}
+.button {
+    background-color: green;
+    color:white;
+    padding: 5px 10px;
+    text-decoration: none;  /*  밑줄제거  */
+    cursor: pointer;
+    display: inline-block;
+	text-align:center;
+	border-radius: 4px;
+	width:100px;height:20px;
+	border:none;
+}
+
+input[type=submit],input[type=reset],input[type=button]{
+    color:white;
+    padding: 5px 10px;
+	text-align:center;
+	display: inline-block;
+	border-radius: 4px;
+	border: none;
+	cursor: pointer;
+} 
+.btnGreen {
+	 background-color: green;width:100px;height:30px;
+}
+
+.btn-small{width:70px;height:30px;background-color: skyblue; color:white;border: none}
+
+.btn{width:100px;height:30px;background-color: green;}
+
+.pagenum {
+    border: 1px solid gray;
+    color: #0178b6;
+    padding: 3px 5px;
+    text-decoration: none;  /*  밑줄제거  */
+    cursor: pointer;
+    display: inline-block;
+	text-align:center;
+	font-size: 9pt;
+}
+.pagenum:hover{
+	  background-color:gray;
+	  color:white;
+} 
+.td1{
+	background-color: #4080bf;
+    color:white;
+    padding: 5px 10px;
+    text-align: center;
+    border-collapse:separate;
+    border-radius: 6px;
+   
+}
+.title {
+	color: #1a1aff;
+	text-decoration: none;  /*  밑줄제거  */
+	font: bold;
+	text-align: center;
+>>>>>>> refs/remotes/origin/master
+}
+.comment {
+	border: 1px solid #dddddd;
+	padding : 8px 30px;
+	margin-bottom: 6px;
+}
+.comment_title {
+	font: bold;
+	font-size: 130%;
+	padding: 20px 0x;
+	display: block;
+}
+.content {
+	padding : 8px 4px;
+	margin-bottom: 8px;
+ }
+
+.nick {
+	width:40%;
+	display: inline-block;
+	color:  #4080bf;
+}
+
+.now {
+	color : gray;
+	width:50%;
+	display: inline-block;
+	
+}
+
+.left{
+	text-align: left;
+	padding-left: 10px;
+}
+
+.none {
+	display: none;
+}

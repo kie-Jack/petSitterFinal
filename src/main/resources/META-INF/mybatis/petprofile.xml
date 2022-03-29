@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jcpdev.petSitter.dao.PetProfileMapper">
+
+	<insert id="insert" parameterType="PetProfile">	<!-- 펫정보 insert -->
+		insert into pet(idx, pet, p_name, p_gender, p_weight, p_birth, p_neu) 
+		values (#{idx}, #{pet}, #{p_name}, #{p_gender}, #{p_weight}, #{p_birth}, #{p_neu})
+	</insert>
+	
+	<select id="p_check" parameterType="java.util.Map" resultType="int">	<!-- 펫정보 중복 확인 -->
+		select count(*) from pet where idx = #{idx} and p_name = #{p_name} 
+		and p_gender = #{p_gender} and p_birth = #{p_birth}
+	</select>
+	
+	
+	
+</mapper>

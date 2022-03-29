@@ -1,0 +1,158 @@
+@charset "UTF-8";
+body{
+font-family: 'Gowun Batang', serif;
+font-size: 80%;
+}
+
+table{
+	justify-content: center; 
+	padding: 5px;
+	margin: auto;
+	border-radius: 5px;
+	background-color: #dcedc8;
+}
+h1 {
+	text-align: center;
+	color: black;
+}
+
+th{
+	text-align: center;
+	padding: 20px;
+	border-radius: 5px;
+	font-weight: bold;
+}
+td{
+	border-radius: 5px;
+	font-style: bold;
+}
+span{
+	font-weight: bold;
+}
+
+.l-radio {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	flex-wrap: nowrap;
+	font-style: bold;
+	color: gray;
+	margin: 12px 0;
+	
+	cursor: pointer;
+	position: relative;
+}
+.l-radio:hover, .l-radio:focus-within {
+	background: rgba(159, 159, 159, 0.1);
+	color: black;
+ } 
+
+.btn {
+	background-color: #aabb97; 
+	border: none;
+	color: white;
+	text-align: center;
+	display: inline-block;
+	margin: 4px 2px;
+	transition-duration: 0.4s;
+	cursor: pointer;
+	padding: 5px;
+	border-radius: 4px;
+}
+.btn {
+	background-color: white; 
+	color: black; 
+	border: 2px solid #aabb97;
+}
+
+.btn:hover {
+	background-color: #aabb97;
+	color: white;
+	box-shadow: 0 3px 3px 0 rgba(0,0,0,0.24), 0 3px 3px 0 rgba(0,0,0,0.19);
+}
+
+.btn span {
+	cursor: pointer;
+	display: inline-block;
+	position: relative;
+	transition: 0.4s;
+}
+
+.btn span:after {
+	content: '\00bb';
+	position: absolute;
+	opacity: 0;
+	top: 0;
+	right: -15px;
+	transition: 0.4s;
+}
+
+.btn:hover span {
+	padding-right: 15px;
+}
+
+.btn:hover span:after {
+	opacity: 1;
+	right: 0;
+}
+
+
+.b_btn {                
+	background-color: #aabb97; 
+	border: none;
+	color: white;
+	text-align: center;
+	display: inline-block;
+	margin: 4px 2px;
+	transition-duration: 0.4s;
+	cursor: pointer;
+	padding: 5px;
+	border-radius: 4px;
+}
+.b_btn {
+	background-color: #aabb97; 
+	color: white; 
+	border: 2px solid #aabb97;
+}
+
+.b_btn:hover {
+	background-color: white;
+	color: black;
+	box-shadow: 0 3px 3px 0 rgba(0,0,0,0.24), 0 3px 3px 0 rgba(0,0,0,0.19);
+
+}
+
+.b_btn span {
+	cursor: pointer;
+	display: inline-block;
+	position: relative;
+	transition: 0.4s;
+}
+
+.b_btn span:after {
+	content: '\00ab';
+	position: absolute;
+	opacity: 0;
+	top: 0;
+	left: -15px;
+	transition: 0.4s;
+}
+
+.b_btn:hover span {
+	padding-left: 15px;
+}
+
+.b_btn:hover span:after {
+	opacity: 1;
+	left: 0;
+}
+
+.name_exist{
+	color: red;
+	display: none;
+}
+.name_ok{
+	color: green;
+	display: none;
+	
+}

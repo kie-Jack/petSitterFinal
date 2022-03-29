@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jcpdev.petSitter.dao.MemberMapper">
+	<select id="selectAll" resultType="Member" parameterType="java.util.Map">
+		select * from member
+	</select>
+	
+  	<select id="selectOne" resultType="Member" parameterType="int">
+		select * from member where idx=#{idx}
+	</select>
+
+	<insert id="insert" parameterType="Member" useGeneratedKeys="true"
+				keyColumn="idx" keyProperty="idx">
+		insert into member (name,id,password,nick,gender,birth,tel,m_addr,s_addr,point,p_auth,license,work_date,home)
+		values (#{name},#{id},#{password},#{nick},#{gender},#{birth},#{tel},#{m_addr},#{s_addr},#{point},#{p_auth},#{license},#{work_date},#{home})
+	</insert>
+	
+	<update id="update" parameterType="Member">
+		update member set password=#{password},tel=#{tel},m_addr=#{m_addr},s_addr=#{s_addr} 
+		where idx=#{idx}
+	</update>
+	
+	<delete id="delete" parameterType="java.util.HashMap">
+	 	delete from member where idx=#{idx} and password =#{password}
+	</delete>
+	
+	<update id="updatepoint" parameterType="Member">
+		update member set point= point+#{point} where idx=#{idx}
+	</update>
+	
+	<select id="login" parameterType="Member" resultType="Member">
+		select * from member where id=#{id} and password=#{password}
+	</select>
+	
+	<select id="IdCheck" parameterType="Member" resultType="int">
+		select count(*) from member where id=#{id}
+	</select>
+	
+	<select id="NickCheck" parameterType="String" resultType="int">
+		select count(*) from member where nick=#{nick}
+	</select>
+	
+</mapper>

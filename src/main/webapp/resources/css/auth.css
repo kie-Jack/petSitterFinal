@@ -1,0 +1,45 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Gugi&display=swap');
+
+
+table{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	font-family : 'Gugi', cursive;
+	font-size : 1.0em;
+	color: #aabb97;
+	padding : 50px;
+	height : 100px;
+	border-spacing: 15px;
+	border-radius: 8px;
+	border: 2px solid #aabb97;
+	background-color: #dcedc8;
+	position: absolute;
+	top: 40%;
+	left: 39%;
+}
+
+#to, #userNum{
+	padding: 7px;
+	border-radius: 5px;
+	border: 1px solid #aabb97;
+}
+
+input[type=submit], input[type=button]{
+	background:	white;
+	color: black;
+	padding: 5px;
+	border-radius: 5px;
+	border: 2px solid #aabb97;
+	transition: all 0.3s ease;	
+}
+
+input[type=submit]:hover, input[type=button]:hover{
+	background:	#aabb97;
+	color: white;
+	box-shadow: 0 3px 3px 0 rgba(0,0,0,0.24), 0 3px 3px 0 rgba(0,0,0,0.19);
+	
+}
+

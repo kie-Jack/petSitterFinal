@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jcpdev.petSitter.dao.Q_BoardMapper"> <!-- namespace : java 인터페이스와 매핑될 파일 지정. -->
+	
+	 <delete id="delete" parameterType="int">
+		delete from q_board where q_idx=#{q_idx}
+	</delete>
+	
+	<select id="getQ_BoardOne" parameterType="int" resultType="Q_Board">
+		select * from q_board where q_idx=#{q_idx}
+	</select>
+	
+	<insert id="insert" parameterType="Q_Board">
+		insert into 
+			q_board (nick,title,content,idx)
+		values 
+			(#{nick},#{title},#{content},#{idx})
+	</insert>
+	
+	<update id="update" parameterType="Q_Board">
+		update q_board set title =#{title}, content=#{content} where q_idx=#{q_idx}
+	</update>
+	
+	<select id="getAll" resultType="Q_Board">
+		select * from q_board
+	</select>
+	
+	<!-- 조회수 -->
+	<update id="updateReadCnt" parameterType="int">
+		update q_board set q_cnt=q_cnt+1 where q_idx=#{q_idx}
+	</update>
+		
+	<select id="getCount" resultType="int">
+		select count(*) from q_board
+	</select>
+	
+	<select id="getPagelist" parameterType="PageDto" resultType="Q_Board">
+		select * from q_board order by q_idx desc LIMIT #{startNo},#{pageSize}
+	</select>
+	<!-- 검색 SQL : 검색 기준 컬럼은 1) 내용 2) 이름  3) 제목  4) 내용+제목   *** 동적 쿼리 ***-->
+	<select id="searchList" parameterType="PageDto" resultType="Q_Board">
+		SELECT * FROM q_board 
+				  <if test='"C".equals(field)'>  <!-- 파라미터 PageDto의 field 속성 -->
+				   where content like concat('%', #{findText},'%')
+				  </if>
+				  <if test='"N".equals(field)'>  
+				   where nick like concat('%', #{findText},'%') <!-- 파라미터 PageDto의 findText 속성 -->
+				  </if>
+				  <if test='"S".equals(field)'>
+				   where content like concat('%', #{findText},'%')
+				  </if>
+				  <if test='"CS".equals(field)'>
+				   where content like concat('%', #{findText},'%')
+				   OR content like concat('%', #{findText},'%')
+				  </if>        
+		          ORDER BY q_idx DESC 
+		          limit #{startNo},#{pageSize}
+	</select>
+	<!-- 검색결과 갯수를 쿼리 실행 : 검색 결과 페이징을 위해서 필요합니다.  -->
+	<select id="searchCount" parameterType="java.util.Map" resultType="int">
+		SELECT count(*) FROM q_board 
+				  <if test='"C".equals(field)'>  <!-- 파라미터 PageDto의 field 속성 -->
+				   where content like concat('%', #{findText},'%')
+				  </if>
+				  <if test='"N".equals(field)'>  
+				   where nick like concat('%', #{findText},'%') <!-- 파라미터 PageDto의 findText 속성 -->
+				  </if>
+				  <if test='"S".equals(field)'>
+				   where content like concat('%', #{findText},'%')
+				  </if>
+				  <if test='"CS".equals(field)'>
+				   where content like concat('%', #{findText},'%')
+				   OR content like concat('%', #{findText},'%')
+				  </if>        
+	</select>
+</mapper>

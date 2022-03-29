@@ -1,0 +1,82 @@
+@charset "UTF-8";
+
+@import
+	url('https://fonts.googleapis.com/css2?family=Gugi&display=swap');
+
+:root { 
+	--dark-green: #aabb97; 
+	--light-green: #dcedc8; 
+	--darker-green: #94af76;
+}
+
+
+.memberDetail {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 120px;
+	flex-direction: column;
+}
+
+.detail {
+	font-family: 'Gugi', cursive;
+	color: black;
+	background-color: var(--light-green);
+	padding: 5px;
+	font-size: 1.4em;
+	text-align: center;
+	border-radius: 5px;
+	list-style: none;
+	margin-top: 50px;
+}
+
+.detailButtons {
+	font-family: 'Gugi', cursive;
+	font-size: 1.3em;
+	display: flex;
+	flex-direction: row;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 150px;
+}
+
+.detailButtons li {
+	list-style: none;
+}
+
+.detailButtons li a {
+	transition-duration: 0.4s;
+	border-radius: 4px;
+	padding: 5px;
+	cursor: pointer;
+	color: white;
+	text-align: center;
+	border: none;
+	background-color: #aabb97;
+	margin-left: 20px;
+	margin-right: 20px;
+	text-decoration: none;
+}
+
+.detailButtons li a:hover {
+	background-color: white;
+	color: black;
+	box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.24), 0 3px 3px 0
+		rgba(0, 0, 0, 0.19);
+	border: 2px solid #aabb97;
+}
+/*a.mup {
+	font-family: 'Gugi', cursive;
+	font-size: 1.3em;
+	background-color: #aabb97;
+	border: none;
+	color: white;
+	text-align: center;
+	transition-duration: 0.4s;
+	cursor: pointer;
+	padding: 5px;
+	border-radius: 4px;
+	text-decoration: none;
+}*/

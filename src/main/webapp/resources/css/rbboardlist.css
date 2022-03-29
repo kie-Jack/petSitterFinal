@@ -1,0 +1,248 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+
+/* css 변경이 브라우저에 바로 반영이 안되면 ctrl + f5  */
+/* body{
+	font-family: 'Gugi', cursive;
+} */
+.rbboardContainer{
+	width: 70%;
+	margin-left: auto;
+	margin-right: auto;
+}
+a.title:link { 
+	color: #4b70fd; 
+	text-decoration: none; 
+}
+a.title:visited { 
+	color: #6688c8; 
+	text-decoration: none;
+}
+
+a.button {
+	font-family : 'Gugi', cursive;
+	text-decoration: none;
+	background-color:	white;
+	color: black;
+	cursor : pointer;
+	text-align: center;
+	border: 2px solid #aabb97;
+	padding : 10px 20px;
+	display: inline-block;
+	margin-left: auto;
+	border-radius: 5px;
+	transition: all 0.3s ease;	
+}
+
+
+a.button:hover{
+	background:	#aabb97;
+	color: white;
+	box-shadow: 0 3px 3px 0 rgba(0,0,0,0.24), 0 3px 3px 0 rgba(0,0,0,0.19);
+}
+h2 {
+	font-family : 'Gugi', cursive;
+	font-size : 39px;
+	left : 100px;
+	top:30px;	
+	margin-top: 200px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 100px; 
+	height : 90px;
+	border-spacing: 15px;
+	text-align: center;
+	line-height: 55px; color: rgb(57, 60, 71);
+}
+h2 > img {
+	display :inline-block;
+	height: 55px;
+	display: block; 
+	margin: 0 auto;
+}
+
+ul {
+	font-family : 'Gugi', cursive;
+	font-size : 15px;
+	list-style: none;
+}
+ul #main{
+	font-family : 'Gugi', cursive;
+		display:flex;
+		flex-direction:column;
+		border-radius: 5px;
+}
+
+ul .mainrow {
+	background-color: #aabb97;
+		display: flex;
+		flex-direction: row;     /* 기본값 */
+		border-top: 1px solid gray;
+		border-bottom: 1px solid gray;
+}
+.mainrow > li{
+	padding: 3px 0px;
+	
+}
+.mainrow > li:nth-child(1){
+	flex-basis:10%;
+}	
+
+.mainrow > li:nth-child(2){
+	flex-basis:30%;
+}	
+.mainrow > li:nth-child(3){
+	flex-basis:15%;
+}
+.mainrow > li:nth-child(4){
+	flex-basis:15%;
+}
+.mainrow > li:nth-child(5){
+	flex-basis:20%;
+	text-align: center;
+}
+.mainrow > li:nth-child(6){
+	flex-basis:10%;
+}
+.mainrow > li:nth-child(7){
+	flex-basis:10%;
+}
+
+
+
+
+ul .row {
+		display: flex;
+		flex-direction: row;     /* 기본값 */
+		border-top: 1px solid gray;
+		border-bottom: 1px solid gray;
+}
+.row > li{
+	padding: 3px 0px;
+}
+.row > li:nth-child(1){
+	flex-basis:10%;
+}
+
+.row > li:nth-child(2){  /* .row 의 자식태그 중 li 그리고 그 li의 n번째 위치(자식요소)로 select  */
+	flex-basis:30%;
+	text-align:left;
+}	
+.row > li:nth-child(3){
+	flex-basis:15%;
+}
+.row > li:nth-child(4){
+	flex-basis:15%;
+}
+
+
+.row > li:nth-child(5){
+  flex-basis:20%;
+  flex-direction: row-reverse;
+  line-height: 1rem;
+  text-align:center;
+  font-size:15px;
+  	-webkit-text-fill-color: transparent;
+	-webkit-text-stroke-width: 0.5px;
+	-webkit-text-stroke-color: #2b2a29;
+	-webkit-text-fill-color: #80c1d5;
+	-webkit-text-fill-color: #80c1d5;
+
+}
+.row > li:nth-child(6){
+	flex-basis:10%;
+}
+.row > li:nth-child(7){
+	flex-basis:10%;
+}	
+
+.sa{
+	width: 100%;
+	height: 100%;
+	background-color: transparent;
+	text-align: center;
+}
+
+.searchdiv{
+	display:inline-block;
+	margin-top: 20px;
+	 width:470px;
+     height:45px;
+     background-color: white;
+     border: 2px solid #aabb97;
+     border-radius: 5px;
+}
+
+.field{
+	border:none;
+	border-right:1px solid gray;
+	width:130px;
+	 height: 40px;
+	background-color:transparent;
+}
+
+input[type=text]{
+	background-color:transparent;
+	border:none;
+	outline: none;
+}
+
+button[type=submit]{
+	border:none;
+	width:auto;
+	background: url('../img/search_icon.png');
+	background-repeat:no-repeat;
+	background-size:16px;
+	background-color:transparent;
+	cursor: pointer;
+	width:16px;
+	height:16px;
+	margin-right: 0;
+}
+
+.pagenum {
+	font-family : 'Gugi', cursive;
+    padding: 3px 5px;
+    text-decoration: none;  /*  밑줄제거  */
+    cursor: pointer;
+    display: inline-block;
+	text-align:center;
+	font-size: 12pt;
+	color : black;
+	background: white;
+	border: 2px solid #aabb97;
+	border-radius: 5px;
+	transition: all 0.3s ease;
+}
+.active{
+	font-family : 'Gugi', cursive;
+    padding: 3px 5px;
+    text-decoration: none;  /*  밑줄제거  */
+    cursor: pointer;
+    display: inline-block;
+	text-align:center;
+	font-size: 12pt;
+	color : black;
+	background: white;
+	border : 2px solid #aabb97;
+	border-radius: 5px;
+	transition: all 0.3s ease;
+}
+
+
+
+.pagenum:hover, .active:hover{
+	background:	#aabb97;
+	color: white;
+	box-shadow: 0 3px 3px 0 rgba(0,0,0,0.24), 0 3px 3px 0 rgba(0,0,0,0.19);
+}
+
+
+.current {
+	color : #c8c8c8;
+	border : 1px solid gray;
+	background: white;
+}
+.none {
+	display: none;
+}

@@ -1,0 +1,85 @@
+@charset "UTF-8";
+/* css 변경이 브라우저에 바로 반영이 안되면 ctrl + f5  */
+
+body{
+	font-family: 'Gugi', cursive;
+}
+ul {
+	list-style: none;
+}
+ul #main{
+		display:flex;
+		flex-direction:column;
+}
+ul .row {
+		display: flex;
+		flex-direction: row;     /* 기본값 */
+}
+.row > li{
+	padding: 3px 0px;
+}
+.row > li:nth-child(1){  /* .row 의 자식태그 중 li 그리고 그 li의 n번째 위치(자식요소)로 select  */
+	flex-basis:50%;
+}	
+.row > li:nth-child(2){
+	flex-basis:50%;
+}
+
+
+.pagenum {
+    border: 1px solid gray;
+    color: #0178b6;
+    padding: 3px 5px;
+    text-decoration: none;  /*  밑줄제거  */
+    cursor: pointer;
+    display: inline-block;
+	text-align:center;
+	font-size: 9pt;
+	border-radius: 2px;
+}
+.pagenum:hover{
+	  background-color:gray;
+	  color:purple;
+} 
+
+.current {
+	background-color:gray;
+	color:white;
+}
+
+table {
+	width : 70%;
+	margin: auto;
+	
+}
+
+th {
+		text-align: center;
+		background-color: #4080bf;
+		font-size:90%;
+		color: white;
+		width: 35%;
+		border-radius : 3px;
+}
+
+
+.btn {
+	width: 70px;
+	cursor : pointer;
+}
+
+.button {
+    background-color: #5C6BC0;
+    color:white;
+    padding: 7px 25px;
+    text-decoration: none;  /*  밑줄제거  */
+    cursor: pointer;
+    display: inline-block;
+	text-align:center;
+	border-radius: 4px;
+	border:none;
+	margin : 3px;
+}
+.none {
+	display: none;
+}

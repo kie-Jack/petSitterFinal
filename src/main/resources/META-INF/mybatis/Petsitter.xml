@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jcpdev.petSitter.dao.PetSitterSelectMapper"> <!-- namespace : 일종의 식별역할의 변수 -->
+	
+	<select id ="PetSitter_Select_Add_Date_Terms" parameterType="AdopttimeDto_second" resultType="PetsitterDto">
+		select p.*,m.name 
+			  from ps_board p ,member m 
+			  where p.idx = m.idx <if test='"S".equals(field)'>
+									and p.title like concat('%', #{findText},'%')
+			 					  </if>
+			 					  <if test='"C".equals(field)'>  <!-- 파라미터 PageDto의 field 속성 -->
+				  					and p.content like concat('%', #{findText},'%')
+								  </if>
+			 					  <if test='"N".equals(field)'>
+									and m.name like concat('%', #{findText},'%')
+			 					  </if>
+			 					  <if test='"CS".equals(field)'>
+									 and (p.title like concat('%', #{findText},'%')
+				  					 OR p.content like concat('%', #{findText},'%'))
+			 					  </if>
+			 					 	and  p.m_addr LIKE CONCAT('%', #{m_addr}, '%') 
+			 					 	and (#{wdate_start} >= p.ps_sdate and p.ps_fdate>= #{wdate_final}) 
+			 					 	and p.terms LIKE CONCAT('%', #{terms}, '%') 
+							    	order by idx desc limit #{StartNo},#{pageSize}
+	</select>
+	
+	<select id ="petsitter_Select_one" parameterType="int" resultType="PetsitterDto">
+		select * from ps_board where idx = #{idx}  
+	</select>
+	
+	<select id ="PetSitter_Select_Date_terms" parameterType="AdopttimeDto_second" resultType="PetsitterDto"> 
+			select p.*,m.name 
+			  from ps_board p ,member m 
+			  where p.idx = m.idx <if test='"S".equals(field)'>
+									and p.title like concat('%', #{findText},'%')
+			 					  </if>
+			 					  <if test='"C".equals(field)'>  <!-- 파라미터 PageDto의 field 속성 -->
+				  					and p.content like concat('%', #{findText},'%')
+								  </if>
+			 					  <if test='"N".equals(field)'>
+									and m.name like concat('%', #{findText},'%')
+			 					  </if>
+			 					  <if test='"CS".equals(field)'>
+									 and (p.title like concat('%', #{findText},'%')
+				  					 OR p.content like concat('%', #{findText},'%'))
+			 					  </if>
+			 					   	and (#{wdate_start} >= p.ps_sdate and p.ps_fdate>= #{wdate_final})
+			 					   	and p.terms LIKE CONCAT('%', #{terms}, '%') 
+							    	order by idx desc limit #{StartNo},#{pageSize}
+	</select>
+	
+	<select id="getCount_Date_terms" resultType="int" parameterType="AdopttimeDto"> 
+			select count(*)   from ps_board p ,member m 
+						  where p.idx = m.idx
+										<if test='"S".equals(field)'>
+										  and p.title like concat('%', #{findText},'%')
+			 					 	    </if>
+			 					 	    <if test='"C".equals(field)'>  <!-- 파라미터 PageDto의 field 속성 -->
+				  						  and p.content like concat('%', #{findText},'%')
+								  		</if>
+			 					  		<if test='"N".equals(field)'>
+										  and m.name like concat('%', #{findText},'%')
+			 					  		</if>
+			 					  		<if test='"CS".equals(field)'>
+									 	  and (p.title like concat('%', #{findText},'%')
+				  					 	  OR p.content like concat('%', #{findText},'%'))
+			 					  		</if>
+			 					  		and (#{wdate_start} >= p.ps_sdate and p.ps_fdate>= #{wdate_final}) 
+			 						 	and p.terms LIKE CONCAT('%', #{terms}, '%') 
+	</select>
+	
+	
+	<select id="getCount_Add_Date_Terms" resultType="int" parameterType="AdopttimeDto">
+		select count(*)   from ps_board p ,member m 
+						  where p.idx = m.idx
+										<if test='"S".equals(field)'>
+										  and p.title like concat('%', #{findText},'%')
+			 					 	    </if>
+			 					 	    <if test='"C".equals(field)'>  <!-- 파라미터 PageDto의 field 속성 -->
+				  						  and p.content like concat('%', #{findText},'%')
+								  		</if>
+			 					  		<if test='"N".equals(field)'>
+										  and m.name like concat('%', #{findText},'%')
+			 					  		</if>
+			 					  		<if test='"CS".equals(field)'>
+									 	  and (p.title like concat('%', #{findText},'%')
+				  					 	  OR p.content like concat('%', #{findText},'%'))
+			 					  		</if>
+			 					  		and p.m_addr LIKE CONCAT('%', #{m_addr}, '%') 
+			 					  		and (#{wdate_start} >= p.ps_sdate and p.ps_fdate>= #{wdate_final}) 
+			 					  		and p.terms LIKE CONCAT('%', #{terms}, '%')
+	</select>
+	
+	<select id="getCount_All" resultType="int" parameterType="AdopttimeDto"> 
+			select count(*)   from ps_board p ,member m 
+						  where p.idx = m.idx
+										<if test='"S".equals(field)'>
+										  and p.title like concat('%', #{findText},'%')
+			 					 	    </if>
+			 					 	    <if test='"C".equals(field)'>  <!-- 파라미터 PageDto의 field 속성 -->
+				  						  and p.content like concat('%', #{findText},'%')
+								  		</if>
+			 					  		<if test='"N".equals(field)'>
+										  and m.name like concat('%', #{findText},'%')
+			 					  		</if>
+			 					  		<if test='"CS".equals(field)'>
+									 	  and (p.title like concat('%', #{findText},'%')
+				  					 	  OR p.content like concat('%', #{findText},'%'))
+			 					  		</if>
+	</select>
+	
+	<select id="getCount_Adrr" resultType="int" parameterType="AdopttimeDto"> 
+			select count(*)   from ps_board p ,member m 
+						  where p.idx = m.idx
+										<if test='"S".equals(field)'>
+										  and p.title like concat('%', #{findText},'%')
+			 					 	    </if>
+			 					 	    <if test='"C".equals(field)'>  <!-- 파라미터 PageDto의 field 속성 -->
+				  						  and p.content like concat('%', #{findText},'%')
+								  		</if>
+			 					  		<if test='"N".equals(field)'>
+										  and m.name like concat('%', #{findText},'%')
+			 					  		</if>
+			 					  		<if test='"CS".equals(field)'>
+									 	  and (p.title like concat('%', #{findText},'%')
+				  					 	  OR p.content like concat('%', #{findText},'%'))
+			 					  		</if>
+			 					  		and p.m_addr LIKE CONCAT('%', #{m_addr}, '%')
+	</select>
+	
+	<select id="getCount_Date" resultType="int" parameterType="AdopttimeDto"> 
+			select count(*)   from ps_board p ,member m 
+						  where p.idx = m.idx
+										<if test='"S".equals(field)'>
+										  and p.title like concat('%', #{findText},'%')
+			 					 	    </if>
+			 					 	    <if test='"C".equals(field)'>  <!-- 파라미터 PageDto의 field 속성 -->
+				  						  and p.content like concat('%', #{findText},'%')
+								  		</if>
+			 					  		<if test='"N".equals(field)'>
+										  and m.name like concat('%', #{findText},'%')
+			 					  		</if>
+			 					  		<if test='"CS".equals(field)'>
+									 	  and (p.title like concat('%', #{findText},'%')
+				  					 	  OR p.content like concat('%', #{findText},'%'))
+			 					  		</if>
+			 					  		and (#{wdate_start} >= p.ps_sdate and p.ps_fdate>= #{wdate_final}) 
+	</select>
+	
+	<select id ="PetSitter_Select_Date" parameterType="AdopttimeDto_second" resultType="PetsitterDto"> 
+			select p.*,m.name 
+			  from ps_board p ,member m 
+			  where p.idx = m.idx <if test='"S".equals(field)'>
+									and p.title like concat('%', #{findText},'%')
+			 					  </if>
+			 					  <if test='"C".equals(field)'>  <!-- 파라미터 PageDto의 field 속성 -->
+				  					and p.content like concat('%', #{findText},'%')
+								  </if>
+			 					  <if test='"N".equals(field)'>
+									and m.name like concat('%', #{findText},'%')
+			 					  </if>
+			 					  <if test='"CS".equals(field)'>
+									 and (p.title like concat('%', #{findText},'%')
+				  					 OR p.content like concat('%', #{findText},'%'))
+			 					  </if>
+			 					   	and (#{wdate_start} >= p.ps_sdate and p.ps_fdate>= #{wdate_final})
+							    	order by idx desc limit #{StartNo},#{pageSize}
+	</select>
+	
+	<select id ="PetSitter_Select_All" parameterType="AdopttimeDto_second" resultType="PetsitterDto"> 
+			select p.*,m.name 
+			  from ps_board p ,member m 
+			  where p.idx = m.idx <if test='"S".equals(field)'>
+									and p.title like concat('%', #{findText},'%')
+			 					  </if>
+			 					  <if test='"C".equals(field)'>  <!-- 파라미터 PageDto의 field 속성 -->
+				  					and p.content like concat('%', #{findText},'%')
+								  </if>
+			 					  <if test='"N".equals(field)'>
+									and m.name like concat('%', #{findText},'%')
+			 					  </if>
+			 					  <if test='"CS".equals(field)'>
+									 and (p.title like concat('%', #{findText},'%')
+				  					 OR p.content like concat('%', #{findText},'%'))
+			 					  </if>
+							    	order by idx desc limit #{StartNo},#{pageSize}
+	</select>
+
+	<select id ="PetSitter_Select_Addr" parameterType="AdopttimeDto_second" resultType="PetsitterDto"> 
+			select p.*,m.name  from ps_board p ,member m 
+	    				   where p.idx = m.idx
+									<if test='"S".equals(field)'>
+									  and p.title like concat('%', #{findText},'%')
+			 				 	    </if>
+			 				 	    <if test='"C".equals(field)'>  <!-- 파라미터 PageDto의 field 속성 -->
+				  					  and p.content like concat('%', #{findText},'%')
+								  	</if>
+			 					  	<if test='"N".equals(field)'>
+									  and m.name like concat('%', #{findText},'%')
+			 				  		</if>
+			 				  		<if test='"CS".equals(field)'>
+								 	  and (p.title like concat('%', #{findText},'%')
+				  				 	  OR p.content like concat('%', #{findText},'%'))
+			 				  		</if>
+			     				  	  and p.m_addr LIKE CONCAT('%', #{m_addr}, '%')
+			     				  	  order by idx desc limit #{StartNo},#{pageSize}
+	</select>
+	
+	<select id ="getCount_Add_Date" resultType="int" parameterType="AdopttimeDto"> 
+			select count(*)   from ps_board p ,member m 
+						  where p.idx = m.idx
+										<if test='"S".equals(field)'>
+										  and p.title like concat('%', #{findText},'%')
+			 					 	    </if>
+			 					 	    <if test='"C".equals(field)'>  <!-- 파라미터 PageDto의 field 속성 -->
+				  						  and p.content like concat('%', #{findText},'%')
+								  		</if>
+			 					  		<if test='"N".equals(field)'>
+										  and m.name like concat('%', #{findText},'%')
+			 					  		</if>
+			 					  		<if test='"CS".equals(field)'>
+									 	  and (p.title like concat('%', #{findText},'%')
+				  					 	  OR p.content like concat('%', #{findText},'%'))
+			 					  		</if>
+			 					  		and p.m_addr LIKE CONCAT('%', #{m_addr}, '%')
+			 					  		and (#{wdate_start} >= p.ps_sdate and p.ps_fdate>= #{wdate_final})
+	
+	</select>
+	
+	<select id ="PetSitter_Select_Addr_date" parameterType="AdopttimeDto_second" resultType="PetsitterDto"> 
+			select p.*,m.name  from ps_board p ,member m 
+	    				   where p.idx = m.idx
+									<if test='"S".equals(field)'>
+									  and p.title like concat('%', #{findText},'%')
+			 				 	    </if>
+			 				 	    <if test='"C".equals(field)'>  <!-- 파라미터 PageDto의 field 속성 -->
+				  					  and p.content like concat('%', #{findText},'%')
+								  	</if>
+			 					  	<if test='"N".equals(field)'>
+									  and m.name like concat('%', #{findText},'%')
+			 				  		</if>
+			 				  		<if test='"CS".equals(field)'>
+								 	  and (p.title like concat('%', #{findText},'%')
+				  				 	  OR p.content like concat('%', #{findText},'%'))
+			 				  		</if>
+			     				  	 and p.m_addr LIKE CONCAT('%', #{m_addr}, '%')
+			 					  	 and (#{wdate_start} >= p.ps_sdate and p.ps_fdate>= #{wdate_final})
+			     				  	  order by idx desc limit #{StartNo},#{pageSize}
+	</select>
+	
+	<select id ="getCount_terms" resultType="int" parameterType="AdopttimeDto"> 
+		select count(*)   from ps_board p ,member m 
+						  where p.idx = m.idx
+										<if test='"S".equals(field)'>
+										  and p.title like concat('%', #{findText},'%')
+			 					 	    </if>
+			 					 	    <if test='"C".equals(field)'>  <!-- 파라미터 PageDto의 field 속성 -->
+				  						  and p.content like concat('%', #{findText},'%')
+								  		</if>
+			 					  		<if test='"N".equals(field)'>
+										  and m.name like concat('%', #{findText},'%')
+			 					  		</if>
+			 					  		<if test='"CS".equals(field)'>
+									 	  and (p.title like concat('%', #{findText},'%')
+				  					 	  OR p.content like concat('%', #{findText},'%'))
+			 					  		</if>
+			 					  		and p.terms LIKE CONCAT('%', #{terms}, '%') 
+	</select>
+	
+	<select id ="PetSitter_Select_terms" parameterType="AdopttimeDto_second" resultType="PetsitterDto"> 
+		select p.*,m.name  from ps_board p ,member m 
+	    				   where p.idx = m.idx
+									<if test='"S".equals(field)'>
+									  and p.title like concat('%', #{findText},'%')
+			 				 	    </if>
+			 				 	    <if test='"C".equals(field)'>  <!-- 파라미터 PageDto의 field 속성 -->
+				  					  and p.content like concat('%', #{findText},'%')
+								  	</if>
+			 					  	<if test='"N".equals(field)'>
+									  and m.name like concat('%', #{findText},'%')
+			 				  		</if>
+			 				  		<if test='"CS".equals(field)'>
+								 	  and (p.title like concat('%', #{findText},'%')
+				  				 	  OR p.content like concat('%', #{findText},'%'))
+			 				  		</if>
+			     				  	  and p.terms LIKE CONCAT('%', #{terms}, '%')
+			     				  	  order by idx desc limit #{StartNo},#{pageSize}
+	</select>
+	
+	<select id ="getCount_Adrr_terms" resultType="int" parameterType="AdopttimeDto"> 
+		select count(*)   from ps_board p ,member m 
+						  where p.idx = m.idx
+										<if test='"S".equals(field)'>
+										  and p.title like concat('%', #{findText},'%')
+			 					 	    </if>
+			 					 	    <if test='"C".equals(field)'>  <!-- 파라미터 PageDto의 field 속성 -->
+				  						  and p.content like concat('%', #{findText},'%')
+								  		</if>
+			 					  		<if test='"N".equals(field)'>
+										  and m.name like concat('%', #{findText},'%')
+			 					  		</if>
+			 					  		<if test='"CS".equals(field)'>
+									 	  and (p.title like concat('%', #{findText},'%')
+				  					 	  OR p.content like concat('%', #{findText},'%'))
+			 					  		</if>
+			 					  		and p.m_addr LIKE CONCAT('%', #{m_addr}, '%') 
+										and p.terms LIKE CONCAT('%', #{terms}, '%')  
+	</select>
+	
+	<select id ="select_Adrr_terms" parameterType="AdopttimeDto_second" resultType="PetsitterDto"> 
+		select p.*,m.name  from ps_board p ,member m 
+	    				   where p.idx = m.idx
+									<if test='"S".equals(field)'>
+									  and p.title like concat('%', #{findText},'%')
+			 				 	    </if>
+			 				 	    <if test='"C".equals(field)'>  <!-- 파라미터 PageDto의 field 속성 -->
+				  					  and p.content like concat('%', #{findText},'%')
+								  	</if>
+			 					  	<if test='"N".equals(field)'>
+									  and m.name like concat('%', #{findText},'%')
+			 				  		</if>
+			 				  		<if test='"CS".equals(field)'>
+								 	  and (p.title like concat('%', #{findText},'%')
+				  				 	  OR p.content like concat('%', #{findText},'%'))
+			 				  		</if>
+			     				  	  and p.m_addr LIKE CONCAT('%', #{m_addr}, '%')
+			     				  	  and p.terms LIKE CONCAT('%', #{terms}, '%')
+			     				  	  order by idx desc limit #{StartNo},#{pageSize}
+
+	</select>
+</mapper>
+<!-- ${ } : 표현식. 중괄호안에 수식에 대한 연산결과값을 구해서 출력
+     #{ } : 무조건 문자열(' '기호사용)로 중괄호 안의 값을 처리합니다.
+     parameterType="java.util.Map" -->
+

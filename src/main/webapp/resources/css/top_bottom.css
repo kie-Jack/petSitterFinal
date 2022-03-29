@@ -1,0 +1,280 @@
+@charset "UTF-8";
+
+@import
+	url('https://fonts.googleapis.com/css2?family=Gugi&display=swap');
+
+#headerbar {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100px;
+	line-height: 100px;
+	background-color: white;
+	transition: opacity 0.2s;
+	opacity: 0;
+}
+
+a.home {
+	font-family: 'Gugi', cursive;
+	font-size: 1.7em;
+	text-align: center;
+	color: #aabb97; /* #dcedc8 */
+	position: fixed;
+	left: 10%;
+	top: 2%;
+	text-decoration: none;
+}
+
+.navMenu {
+	position: fixed;
+	top: 5%;
+	left: 30%;
+}
+
+.nav-links a {
+	display: inline-block;
+	text-decoration: none;
+	font-family: 'Gugi', cursive;
+	font-size: 1.0 em;
+	text-align: center;
+	color: rgb(57, 60, 71);
+	-webkit-transition: all 0.2s ease-in-out;
+	transition: all 0.2s ease-in-out;
+	margin-left: 10px;
+	margin-right: 10px;
+	padding: 3px;
+}
+
+.nav-links a:hover {
+	color: #dcedc8;
+	background-color: #aabb97;
+	border-radius: 4px;
+}
+
+.burger {
+	display: none;
+	cursor: pointer;
+	position: fixed;
+	top: 15px;
+	right: 15px;
+	padding: 5px;
+}
+
+.burger div {
+	width: 25px;
+	height: 3px;
+	background-color: #aabb97;
+	margin: 5px;
+	transition: all 0.3s ease;
+	borer-radius: 2px;
+}
+
+.m-icon {
+	display: none;
+	font-size: 2.0em;
+	font-weight: bolder;
+	cursor: pointer;
+	position: fixed;
+	margin: 5px;
+	top: 15px;
+	left: 15px;
+	transition: all 0.3s ease;
+	background-color: #aabb97;
+	padding: 5px;
+	border-radius: 20px;
+}
+
+@media screen and (max-width:894px) {
+	a.home {
+		font-size: 1.5em;
+		left: 45%;
+	}
+	body {
+		overflow-x: hidden;
+	}
+	.nav-links {
+		position: absolute;
+		right: 0px;
+		height: 35vh;
+		top: 8vh;
+		background-color: #aabb97;
+		border-radius: 10px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		width: 50%;
+		transform: translateX(100%);
+		transition: transform 0.5s ease-in;
+		font-size: 1.7em;
+	}
+	.nav-links a {
+		opacity: 0;
+		color: white;
+		margin-top: 20px;
+	}
+	.log a {
+		opacity: 0;
+		color: #aabb97;
+		margin-top: 20px;
+	}
+	.m-icon {
+		display: block;
+		z-index: 1;
+		color: white;
+	}
+	.burger {
+		display: block;
+	}
+	.log {
+		position: absolute;
+		left: 0px;
+		height: 30vh;
+		top: 8vh;
+		background-color: #dcedc8;
+		border-radius: 10px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		width: 50%;
+		transform: translateX(-100%);
+		transition: transform 0.5s ease-in;
+		font-size: 1.7em;
+		margin-top: 61px;
+	}
+}
+
+.log-active {
+	position: fixed;
+	top: 100px;
+	left: 300px;
+	width: 50vh;
+}
+
+.nav-active {
+	position: fixed;
+	width: 50vh;
+	transform: translateX(0%);
+}
+
+@keyframes logLinkFade {
+	from { 
+	opacity:0;
+	transform: translateX(-50px);
+}
+
+to {
+	opacity: 1;
+	trnasform: translateX(0px);
+}
+
+}
+
+@keyframes navLinkFade {
+	from { 
+	opacity:0;
+	transform: translateX(50px);
+}
+
+to {
+	opacity: 1;
+	trnasform: translateX(0px);
+}
+
+}
+
+.toggle .line1 {
+	transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.toggle .line2 {
+	opacity: 0;
+}
+
+.toggle .line3 {
+	transform: rotate(45deg) translate(-5px, -6px);
+}
+
+html {
+	position: relative;
+	min-height: 100%;
+	margin: 0;
+}
+
+body {
+	min-height: 100%;
+	display: flex;
+	flex-direction: column;
+	background-color: rgba(170, 187, 151, 0.25);
+}
+
+body::before {
+	content: "";
+	background: url('../img/home_bg.png');
+	background-size: cover;
+	background-repeat: no-repeat;
+	opacity: 0.15;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	bottom: 0px;
+	z-index: -10000;
+}
+
+.main-msg {
+	font-family: 'Gugi', cursive;
+	font-size: 40px;
+	color: #004445;
+	font-weight: 500;
+	text-align: center;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-left: -15rem;
+	margin-top: 25rem;
+	z-index: 1;
+	opacity: 100%;
+}
+
+.log {
+	position: fixed;
+	top: 10px;
+	right: 5px;
+	width: 45vh;
+	transition: all 0.3s ease;
+	color: #aabb97;
+}
+
+.member {
+	font-family: 'Gugi', cursive;
+	font-size: 1em;
+	text-decoration: none;
+	margin-right: 20px;
+	transition: all 0.3s ease;
+	color: #aabb97;
+	padding: 3px;
+}
+
+.member:hover {
+	color: #dcedc8;
+	background-color: #aabb97;
+	border-radius: 5px;
+}
+
+.login-out-reg {
+	font-family: 'Gugi', cursive;
+	font-size: 1em;
+	border: 2px solid #aabb97;
+	border-radius: 5px;
+	text-decoration: none;
+	margin-right: 20px;
+	transition: all 0.3s ease;
+	color: #aabb97;
+	padding: 3px;
+}
+
+.login-out-reg:hover {
+	color: white;
+	background-color: #aabb97
+}

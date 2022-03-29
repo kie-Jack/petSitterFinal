@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.jcpdev.petSitter.dao.Ps_boardMapper">
+	
+	<insert id="psb_insert" parameterType="Ps_board">	<!-- 펫시터 테이블 정보 insert -->
+		insert into ps_board (idx, title, content, ps_sdate, ps_fdate, p_size, comment, terms, g_fname, m_addr) 
+		values (#{idx}, #{title}, #{content}, #{ps_sdate}, #{ps_fdate}, #{p_size}, #{comment}, #{terms}, #{g_fname}, #{m_addr})
+	</insert>
+	
+	<!-- <insert id="g_insert" parameterType="dto.Gallery">	펫시터 게시판 사진 insert
+		insert into gallery (psb_idx, g_fname) values (#{psb_idx}, #{g_fname})
+	</insert> -->
+	
+	<select id="g_getList" parameterType="int" resultType="Ps_board">	<!-- 펫시터 게시판 사진 불러오기 -->
+		select * from ps_board where psb_idx = #{psb_idx}
+	</select>
+	
+	<select id="psb_getList" parameterType="int" resultType="Ps_board">	<!-- 펫시터 게시글 불러오기 -->
+		select * from ps_board where psb_idx = #{psb_idx}
+	</select>
+	
+	<select id="p_getList" parameterType="int" resultType="Pet">	<!-- 펫정보 불러오기 -->
+		select * from pet where idx = #{idx}
+	</select>
+	
+	<select id="ps_getList" parameterType="int" resultType="Member">	<!-- 펫시터 정보 불러오기 -->
+		select * from member where idx = (select idx from ps_board where psb_idx = #{psb_idx})
+	</select>
+	
+	<select id="m_getList" parameterType="int" resultType="Member">	<!-- 회원정보 불러오기 -->
+		select * from member where idx = #{idx}
+	</select>
+	
+	<select id="rate" parameterType="String" resultType="double">	<!-- 펫시터 평점 평균 불러오기 -->
+		select avg(rate) from r_board where ps_nick = #{ps_nick} group by ps_nick
+	</select>
+	
+	<select id="rateCnt" parameterType="String" resultType="String">	<!-- 펫시터 후기 게시판 갯수 불러오기 -->
+		select count(rate) from r_board where ps_nick = #{ps_nick} group by ps_nick
+	</select>
+	
+	<insert id="psr_insert" parameterType="Reservation">	<!-- 예약내역 저장하기 -->
+		insert into reservation (idx, ps_idx, pay, s_date, f_date, r_date) 
+		values (#{idx}, #{ps_idx}, #{pay}, #{s_date}, #{f_date}, #{r_date})
+	</insert>
+	
+	<update id="plusPoint" parameterType="java.util.Map">	<!-- 펫시터 포인트 증가 -->
+		update member set point = point + #{money} where idx = #{idx}
+	</update>
+	
+	<update id="minusPoint" parameterType="java.util.Map">	<!-- 예약자 포인트 감소 -->
+		update member set point = point - #{pay} where idx = #{idx}
+	</update>
+	
+	<insert id="plusIncome" parameterType="java.util.Map">	<!-- 거래에 대한 수수료 -->
+		insert into income value(#{idx}, now(), #{vat})
+	</insert>
+	
+	<select id="r_getList" parameterType="String" resultType="R_board">	<!-- 후기게시판 불러오기 -->
+		select * from r_board where ps_nick = #{ps_nick}
+	</select>
+	
+	<update id="psb_update" parameterType="Ps_board">	<!-- 펫시터 게시판 수정 -->
+		update ps_board set title = #{title}, content = #{content}, ps_sdate = #{ps_sdate}, 
+		ps_fdate = #{ps_fdate}, p_size = #{p_size}, comment = #{comment}, terms = #{terms}, 
+		g_fname = #{g_fname}, m_addr = #{m_addr} where psb_idx = #{psb_idx}
+	</update>
+	
+	<delete id="psb_delete" parameterType="int">
+		delete from ps_board where psb_idx = #{psb_idx}
+	</delete>
+	
+	<select id="checkIncome" resultType="String">
+		select sum(income) from income
+	</select>
+</mapper>
+
+
+
+
+
+
+
+

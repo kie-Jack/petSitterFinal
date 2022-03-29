@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- sql mapper   -->  
+<mapper namespace="com.jcpdev.petSitter.dao.RboardMapper"> <!-- namespace : 일종의 식별역할의 변수 -->
+	
+	<select id="getList" resultType="Rboard" parameterType="pageDto2">
+		SELECT * FROM r_board 
+				  <if test='"C".equals(field)'>  
+				   where content like concat('%', #{findText},'%')
+				  </if>
+				  <if test='"N".equals(field)'>  
+				   where nick like concat('%', #{findText},'%')
+				  </if>
+				  <if test='"PS".equals(field)'>  
+				   where ps_nick like concat('%', #{findText},'%') 
+				  </if>
+				  <if test='"T".equals(field)'>
+				   where title like concat('%', #{findText},'%')
+				  </if>
+				  <if test='"CT".equals(field)'>
+				   where content like concat('%', #{findText},'%')
+				   OR title like concat('%', #{findText},'%')
+				  </if>        
+		          ORDER BY r_idx DESC 
+		          limit #{startNo},#{pageSize}
+	</select>
+	<select id="searchCount" parameterType="java.util.Map" resultType="int">
+		SELECT count(*) FROM r_board
+				 <if test='"C".equals(field)'>  
+				   where content like concat('%', #{findText},'%')
+				  </if>
+				  <if test='"N".equals(field)'>  
+				   where nick like concat('%', #{findText},'%')
+				  </if>
+				  <if test='"PS".equals(field)'>  
+				   where ps_nick like concat('%', #{findText},'%') 
+				  </if>
+				  <if test='"T".equals(field)'>
+				   where title like concat('%', #{findText},'%')
+				  </if>
+				  <if test='"CT".equals(field)'>
+				   where content like concat('%', #{findText},'%')
+				   OR title like concat('%', #{findText},'%')
+				  </if>        
+	</select>
+	<select id="selectByIdx" resultType="Rboard" parameterType="int">
+		select * from r_board where r_idx=#{r_idx}
+	</select>
+	
+	<select id="getCount" resultType="int" >
+		select count(*) from r_board
+	</select>
+	
+	<insert id="insert" parameterType="Rboard" useGeneratedKeys="true" keyProperty="r_idx">
+		insert into r_board (idx,title,content, r_cnt, nick,ps_nick ,rate)
+		values (#{idx},#{title},#{content},#{r_cnt},#{nick},#{ps_nick},#{rate})
+	</insert>
+	
+	<update id="update" parameterType="Rboard">
+		update r_board set title =#{title}, content=#{content} , rate=#{rate}
+		where r_idx=#{r_idx}
+	</update>
+	
+	<delete id="delete" parameterType="Rboard"><!-- 글 비밀번호 확인하고 삭제 -->
+		delete from r_board where r_idx=#{r_idx}
+	</delete>
+	
+	
+	<update id="readCount" parameterType="int">
+		update r_board set r_cnt = r_cnt +1 where r_idx=#{r_idx}
+	</update>
+	
+	<select id="getPsList" resultType="Member" parameterType="PageDto2">
+		select * from member where p_auth='지원' order by idx desc limit #{startNo},#{pageSize}
+	</select>
+	<select id="psCount" resultType="int">
+		select count(*) from member where p_auth='지원'
+	</select>
+	<select id="resultCount" resultType="int" parameterType="String">
+		select count(*) from member where p_auth='지원' and nick like CONCAT('%',#{nick},'%')
+	</select>
+	<select id="psByNick" resultType="Member" parameterType="PageDto2">
+		select * from member where p_auth='지원' and nick like CONCAT('%',#{nick},'%') ORDER BY idx DESC 
+		          limit #{startNo},#{pageSize}
+	</select>
+		
+<!-- 	<select id="loginCheck" parameterType="java.util.Map" resultType="SessionDto">
+		select * from member where id = #{id} 
+		and password=#{password}
+	</select> -->
+</mapper>
+<!-- ${ } : 표현식. 중괄호안에 수식에 대한 연산결과값을 구해서 출력
+     #{ } : 무조건 문자열(' '기호사용)로 중괄호 안의 값을 처리합니다. -->

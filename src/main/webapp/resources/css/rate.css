@@ -1,0 +1,71 @@
+@charset "UTF-8";
+/* css 변경이 브라우저에 바로 반영이 안되면 ctrl + f5  */
+
+/* .star-rating {
+	font-family: 'FontAwesome'; 
+	border: none;
+  display: flex;
+  flex-direction: row-reverse;
+  line-height: 1.7rem;
+  font-size: 1.5rem;
+  justify-content: space-beteween;
+  padding: 0 0.2em;
+  text-align: center;
+  width: 5em;
+}
+ 
+.star-rating input {
+  display: none;
+}
+ .checked {
+  color: orange;
+}
+.star-rating label {
+  -webkit-text-fill-color: transparent; Will override color (regardless of order)
+  -webkit-text-stroke-width: 1.6px;
+  -webkit-text-stroke-color: #2b2a29;
+  cursor: pointer;
+}
+ 
+.star-rating :checked ~ label {
+  -webkit-text-fill-color: gold;
+}
+ 
+.star-rating label:hover,
+.star-rating label:hover ~ label {
+  -webkit-text-fill-color: #fff58c;
+} */
+
+.star-rating{
+	font-size: 0;
+
+}
+.star-rating__wrap{
+	display: inline-block;
+	font-size: 1rem;
+	padding-top:30px;
+	line-height: 1.7rem;
+}
+.star-rating__wrap:after{
+	content: "";
+	display: table;
+	clear: both;
+}
+.star-rating__ico{
+	float: right;
+	padding-left: 2px;
+	cursor: pointer;
+	color: #80c1d5;
+}
+.star-rating__ico:last-child{
+	padding-left: 0;
+}
+.star-rating__input{
+	display: none;
+}
+.star-rating__ico:hover:before,
+.star-rating__ico:hover ~ .star-rating__ico:before,
+.star-rating__input:checked ~ .star-rating__ico:before
+{
+	content: "\f005";
+} 

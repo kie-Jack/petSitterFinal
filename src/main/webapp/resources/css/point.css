@@ -1,0 +1,56 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Gugi&display=swap');
+
+
+form{
+	display: flex;
+	margin: auto;
+}
+h4{
+	position: fixed;
+	top: 29%;
+	left: 42%;
+	font-family: 'Gugi', cursive;
+	font-size: 1.3em;
+}
+td{
+	margin-top: 10px;
+}
+.pointCharge{
+    font-family: 'Gugi', cursive;
+    font-size: 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 40px;
+    padding-bottom: 20px;
+    padding-left: 30px;
+    padding-right: 30px;
+    height: 250px;
+    border-radius: 5px;
+    background-color: #dcedc8;
+    border-spacing: 15px;
+    width: 330px;
+    position: fixed;
+    top: 35%;
+    left: 40%;
+}
+
+input[type=submit], input[type=button]{
+	background:	white;
+	color: black;
+	padding: 5px;
+	border-radius: 5px;
+	border: 2px solid #aabb97;
+	display: inline-block;
+	margin: 4px 2px;
+	transition: all 0.3s ease;	
+}
+
+input[type=submit]:hover, input[type=button]:hover{
+	background:	#aabb97;
+	color: white;
+	box-shadow: 0 3px 3px 0 rgba(0,0,0,0.24), 0 3px 3px 0 rgba(0,0,0,0.19);
+	
+}
